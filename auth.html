@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Authentication - Creator Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .auth-container {
+      max-width: 500px;
+      margin: 60px auto;
+      padding: 40px;
+    }
+    .auth-tabs {
+      display: flex;
+      margin-bottom: 30px;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+    }
+    .auth-tab {
+      flex: 1;
+      text-align: center;
+      padding: 15px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--dark);
+      opacity: 0.5;
+      transition: all 0.3s;
+    }
+    .auth-tab.active {
+      opacity: 1;
+      border-bottom: 3px solid var(--primary);
+      color: var(--dark);
+    }
+    body.dark-theme .auth-tab.active { color: var(--white); }
+    body.dark-theme .auth-tab { color: var(--white); }
+    
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      width: 100%;
+      padding: 12px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,0,0,0.1);
+      background: white;
+      color: #333;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 20px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .social-btn:hover {
+      background: #f8f9fa;
+      transform: translateY(-2px);
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 20px 0;
+      color: var(--dark);
+      opacity: 0.5;
+      font-size: 0.9rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid currentColor;
+    }
+    .divider:not(:empty)::before { margin-right: .25em; }
+    .divider:not(:empty)::after { margin-left: .25em; }
+    
+    .auth-form { display: none; }
+    .auth-form.active { display: block; }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container flex justify-between items-center">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px; font-size: 1.8rem; font-weight: 700; color: var(--dark); text-decoration: none;">
+        <svg width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 0L18.4239 11.5761L30 15L18.4239 18.4239L15 30L11.5761 18.4239L0 15L11.5761 11.5761L15 0Z" fill="var(--primary)"/>
+        </svg>
+        Creator Hub
+      </a>
+      <ul class="nav-links">
+        <li><a href="directory.html">Creators</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li class="mobile-only"><a href="dashboard-brand.html" class="btn btn-outline" style="width: 100%; margin-top: 10px;">For Brands</a></li>
+        <li class="mobile-only"><a href="dashboard-creator.html" class="btn btn-dark" style="width: 100%;">For Creators</a></li>
+      </ul>
+      <div style="display: flex; gap: 15px; align-items: center;">
+        <button id="themeToggle" class="theme-btn" style="background: none; border: 1px solid var(--dark); border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--dark); transition: all 0.3s;" title="Toggle Dark/Light Mode">
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <!-- Hamburger Menu Button (Mobile) -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="glass-panel auth-container">
+      
+      <div class="auth-tabs">
+        <div class="auth-tab active" id="tab-login" onclick="switchTab('login')">Log In</div>
+        <div class="auth-tab" id="tab-signup" onclick="switchTab('signup')">Sign Up</div>
+      </div>
+
+      <button class="social-btn">
+        <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Continue with Google
+      </button>
+      
+      <div class="divider">or continue with email</div>
+
+      <!-- Login Form -->
+      <form id="form-login" class="auth-form active">
+        <div class="input-group">
+          <label class="input-label">Email Address</label>
+          <input type="email" class="input-field" id="login-email" required placeholder="you@example.com">
+        </div>
+        <div class="input-group">
+          <label class="input-label">Password</label>
+          <input type="password" class="input-field" id="login-password" required placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-dark w-full">Log In</button>
+      </form>
+
+      <!-- Sign Up Form -->
+      <form id="form-signup" class="auth-form">
+        <div class="input-group">
+          <label class="input-label">I am signing up as a:</label>
+          <select class="input-field" id="signup-role" required>
+            <option value="creator">Creator (Looking for sponsorships)</option>
+            <option value="brand">Brand (Looking for influencers)</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Full Name / Company Name</label>
+          <input type="text" class="input-field" id="signup-name" required placeholder="John Doe">
+        </div>
+        <div class="input-group">
+          <label class="input-label">Email Address</label>
+          <input type="email" class="input-field" id="signup-email" required placeholder="you@example.com">
+        </div>
+        <div class="input-group">
+          <label class="input-label">Password</label>
+          <input type="password" class="input-field" id="signup-password" required placeholder="Create a strong password">
+        </div>
+        <button type="submit" class="btn btn-primary w-full">Create Account</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer container">
+    <div class="footer-grid mb-8" style="border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 40px;">
+      <div class="footer-col">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://creatorhub.lk&color=191A23&bgcolor=FFFFFF&qzone=1" alt="Creator Hub QR Code" style="border-radius: 8px; border: 4px solid var(--white);">
+        <div style="display: flex; gap: 15px; margin-top: 20px; width: 160px; justify-content: space-between;">
+          <!-- Facebook -->
+          <a href="#" style="color: var(--white); transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--white)'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" style="color: var(--white); transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--white)'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <!-- Twitter/X -->
+          <a href="#" style="color: var(--white); transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--white)'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" style="color: var(--white); transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--white)'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <a href="index.html" style="display: flex; align-items: center; gap: 10px; font-size: 1.8rem; font-weight: 700; color: var(--white); text-decoration: none;">
+          <svg width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 0L18.4239 11.5761L30 15L18.4239 18.4239L15 30L11.5761 18.4239L0 15L11.5761 11.5761L15 0Z" fill="var(--primary)"/>
+          </svg>
+          Creator Hub
+        </a>
+        <p style="color: var(--white); opacity: 0.7; margin-top: 15px; font-size: 0.9rem;">Empowering Sri Lanka's<br>Creator Economy</p>
+      </div>
+      <div class="footer-col">
+        <h4 style="margin-bottom: 20px; color: var(--primary);">Quick Links</h4>
+        <ul>
+          <li><a href="directory.html" style="color: var(--white); text-decoration: none; opacity: 0.8;">Directory</a></li>
+          <li><a href="pricing.html" style="color: var(--white); text-decoration: none; opacity: 0.8;">Pricing</a></li>
+          <li><a href="about.html" style="color: var(--white); text-decoration: none; opacity: 0.8;">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 style="margin-bottom: 20px; color: var(--primary);">Contact Us</h4>
+        <ul>
+          <li style="color: var(--white); opacity: 0.8; font-size: 0.875rem; display: flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            Colombo Trade City, Colombo 03
+          </li>
+          <li style="color: var(--white); opacity: 0.8; font-size: 0.875rem; display: flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            hello@creatorhub.lk
+          </li>
+          <li><a href="privacy.html" style="color: var(--white); text-decoration: underline; opacity: 0.8; font-size: 0.875rem;">Privacy Policy</a></li>
+          <li><a href="terms.html" style="color: var(--white); text-decoration: underline; opacity: 0.8; font-size: 0.875rem;">Terms & Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center; text-align: center;">
+      <p style="opacity: 0.6; font-size: 0.875rem;">&copy; 2026 Creator Hub Sri Lanka. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Tab Switching Logic
+    function switchTab(tab) {
+      document.getElementById('tab-login').classList.remove('active');
+      document.getElementById('tab-signup').classList.remove('active');
+      document.getElementById('form-login').classList.remove('active');
+      document.getElementById('form-signup').classList.remove('active');
+
+      document.getElementById('tab-' + tab).classList.add('active');
+      document.getElementById('form-' + tab).classList.add('active');
+    }
+
+    // Auto-select role based on URL parameters
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const role = urlParams.get('role');
+      if (role === 'brand' || role === 'creator') {
+        switchTab('signup');
+        document.getElementById('signup-role').value = role;
+      }
+    });
+
+    // Handle Signup
+    document.getElementById('form-signup').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const role = document.getElementById('signup-role').value;
+      const name = document.getElementById('signup-name').value;
+      const email = document.getElementById('signup-email').value;
+      const password = document.getElementById('signup-password').value;
+
+      // Simulate Database via LocalStorage
+      let users = JSON.parse(localStorage.getItem('creatorHubUsers') || '[]');
+      
+      // Check if user exists
+      if(users.find(u => u.email === email)) {
+        alert("An account with this email already exists! Please log in.");
+        return;
+      }
+
+      const newUser = { role, name, email, password };
+      users.push(newUser);
+      localStorage.setItem('creatorHubUsers', JSON.stringify(users));
+      
+      // Log them in immediately
+      localStorage.setItem('currentUser', JSON.stringify(newUser));
+      
+      alert("Account created successfully!");
+      if(role === 'brand') window.location.href = 'dashboard-brand.html';
+      else window.location.href = 'dashboard-creator.html';
+    });
+
+    // Handle Login
+    document.getElementById('form-login').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      let users = JSON.parse(localStorage.getItem('creatorHubUsers') || '[]');
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if(user) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        if(user.role === 'brand') window.location.href = 'dashboard-brand.html';
+        else window.location.href = 'dashboard-creator.html';
+      } else {
+        alert("Invalid email or password. Please try again.");
+      }
+    });
+
+    // Mock Google Login
+    const googleBtn = document.querySelector('.social-btn');
+    if(googleBtn) {
+      googleBtn.addEventListener('click', () => {
+        alert("Google OAuth simulation triggered. In a real environment, this would open a Google popup.");
+      });
+    }
+  </script>
+</body>
+</html>

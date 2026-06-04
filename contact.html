@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - Creator Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container flex justify-between items-center">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px; font-size: 1.8rem; font-weight: 700; color: var(--dark); text-decoration: none;">
+        <svg width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 0L18.4239 11.5761L30 15L18.4239 18.4239L15 30L11.5761 18.4239L0 15L11.5761 11.5761L15 0Z" fill="var(--primary)"/>
+        </svg>
+        Creator Hub
+      </a>
+      <ul class="nav-links">
+        <li><a href="directory.html">Creators</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" style="color: var(--primary);">Contact Us</a></li>
+        <li class="mobile-only"><a href="dashboard-brand.html" class="btn btn-outline" style="width: 100%; margin-top: 10px;">For Brands</a></li>
+        <li class="mobile-only"><a href="dashboard-creator.html" class="btn btn-dark" style="width: 100%;">For Creators</a></li>
+      </ul>
+      <div style="display: flex; gap: 15px; align-items: center;">
+        <button id="themeToggle" class="theme-btn" style="background: none; border: 1px solid var(--dark); border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--dark); transition: all 0.3s;" title="Toggle Dark/Light Mode">
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <div class="desktop-only" style="gap: 15px; align-items: center;">
+          <a href="dashboard-brand.html" class="btn btn-outline" style="padding: 10px 20px; font-size: 1rem;">For Brands</a>
+          <a href="dashboard-creator.html" class="btn btn-dark" style="padding: 10px 20px; font-size: 1rem;">For Creators</a>
+        </div>
+        <!-- Hamburger Menu Button (Mobile) -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section">
+    <div class="text-center" style="margin-bottom: 60px;">
+      <h1>Get in Touch</h1>
+      <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto;">Have a question about campaigns, pricing, or need help with your account? We're here to help.</p>
+    </div>
+    
+    <div class="grid grid-cols-2 gap-8">
+      <!-- Contact Info -->
+      <div class="card card-primary flex-col gap-4" style="justify-content: center; border: 2px solid var(--dark);">
+        <h2 style="background: none; padding: 0; color: var(--dark); font-size: 2rem; margin-bottom: 20px;">Contact Information</h2>
+        
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--white); border: 1px solid var(--dark); display: flex; align-items: center; justify-content: center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          </div>
+          <div>
+            <p style="margin: 0; font-weight: bold; color: var(--dark);">Email Us</p>
+            <p style="margin: 0; opacity: 0.8; color: var(--dark);">hello@creatorhub.lk</p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--white); border: 1px solid var(--dark); display: flex; align-items: center; justify-content: center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </div>
+          <div>
+            <p style="margin: 0; font-weight: bold; color: var(--dark);">Call Us</p>
+            <p style="margin: 0; opacity: 0.8; color: var(--dark);">+94 11 234 5678</p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 15px;">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--white); border: 1px solid var(--dark); display: flex; align-items: center; justify-content: center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          </div>
+          <div>
+            <p style="margin: 0; font-weight: bold; color: var(--dark);">Visit Us</p>
+            <p style="margin: 0; opacity: 0.8; color: var(--dark);">123 Tech Lane, Colombo 03</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contact Form -->
+      <div class="card card-light">
+        <form id="contactForm" style="display: flex; flex-direction: column; gap: 20px;">
+          <div class="input-group" style="margin: 0;">
+            <label class="input-label" for="name">Your Name</label>
+            <input type="text" id="name" name="name" class="input-field" placeholder="John Doe" required>
+          </div>
+          <div class="input-group" style="margin: 0;">
+            <label class="input-label" for="email">Email Address</label>
+            <input type="email" id="email" name="email" class="input-field" placeholder="john@example.com" required>
+          </div>
+          <div class="input-group" style="margin: 0;">
+            <label class="input-label" for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" class="input-field" placeholder="How can we help?" required>
+          </div>
+          <div class="input-group" style="margin: 0;">
+            <label class="input-label" for="message">Message</label>
+            <textarea id="message" name="message" class="input-field" placeholder="Type your message here..." rows="5" required style="resize: vertical;"></textarea>
+          </div>
+          <button type="submit" id="submitBtn" class="btn btn-dark" style="width: 100%; font-size: 1.1rem; padding: 1.2rem;">Send Message</button>
+          <div id="formMessage" style="display: none; padding: 15px; border-radius: var(--radius); text-align: center; font-weight: 500;"></div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <!-- Assignment Requirement: jQuery and AJAX -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#contactForm').on('submit', function(e) {
+        e.preventDefault(); // Prevent default form submission
+        
+        const btn = $('#submitBtn');
+        const formMsg = $('#formMessage');
+        const originalText = btn.text();
+        
+        btn.text('Sending...').prop('disabled', true);
+        formMsg.hide().removeClass('success-msg error-msg');
+        
+        // Use AJAX to send data to our PHP script
+        $.ajax({
+          type: 'POST',
+          url: 'process_contact.php',
+          data: $(this).serialize(),
+          dataType: 'json',
+          success: function(response) {
+            formMsg.css({
+              'background-color': '#d4edda',
+              'color': '#155724',
+              'border': '1px solid #c3e6cb'
+            }).text(response.message).slideDown();
+            $('#contactForm')[0].reset();
+          },
+          error: function(xhr) {
+            let errorMsg = 'An error occurred. Please try again.';
+            if (xhr.responseJSON && xhr.responseJSON.message) {
+              errorMsg = xhr.responseJSON.message;
+            }
+            formMsg.css({
+              'background-color': '#f8d7da',
+              'color': '#721c24',
+              'border': '1px solid #f5c6cb'
+            }).text(errorMsg).slideDown();
+          },
+          complete: function() {
+            btn.text(originalText).prop('disabled', false);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

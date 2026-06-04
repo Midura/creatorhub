@@ -1,0 +1,182 @@
+$htmlContent = @"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creator Profile - Creator Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container flex justify-between items-center">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px; font-size: 1.8rem; font-weight: 700; color: var(--dark); text-decoration: none;">
+        <svg width="40" height="40" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 0L18.4239 11.5761L30 15L18.4239 18.4239L15 30L11.5761 18.4239L0 15L11.5761 11.5761L15 0Z" fill="var(--primary)"/>
+        </svg>
+        Creator Hub
+      </a>
+      <ul class="nav-links">
+        <li><a href="directory.html">Creators</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+      <div style="display: flex; gap: 15px; align-items: center;">
+        <button id="themeToggle" class="theme-btn" style="background: none; border: 1px solid var(--dark); border-radius: 50%; width: 40px; height: 40px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--dark); transition: all 0.3s;" title="Toggle Dark/Light Mode">
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        </button>
+        <a href="dashboard-brand.html" class="btn btn-outline">For Brands</a>
+        <a href="dashboard-creator.html" class="btn btn-dark">For Creators</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container section">
+    <div id="coverImage" style="height: 300px; background-color: var(--dark); border-radius: var(--radius-lg); margin-bottom: -50px; position: relative; background-image: url('https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1200&q=80'); background-size: cover; background-position: center;">
+      <!-- Cover Image -->
+      <ul style="list-style: none; padding: 20px; position: absolute; bottom: 50px; left: 0;">
+        <li id="headerLocation" style="color: var(--white); font-weight: 600; font-size: 0.875rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">&#128205; Colombo, LK</li>
+        <li id="headerEmail" style="color: var(--white); font-weight: 600; font-size: 0.875rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">&#9993;&#65039; contact@creatorhub.lk</li>
+      </ul>
+    </div>
+    
+    <div class="flex gap-8" style="padding: 0 40px;">
+      <div style="width: 250px;">
+        <img id="profileImage" src="images/creator_hasini.jpg" alt="Profile" style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--white); z-index: 10; position: relative; object-fit: cover; object-position: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <h2 id="profileName" style="margin-top: 20px; font-size: 1.5rem; background-color: transparent;">Creator Name</h2>
+        <p id="profileRole" style="color: #666; margin-bottom: 10px;">Content Creator from Colombo</p>
+        
+        <!-- Social Icons -->
+        <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+          <a href="#" style="color: var(--dark); display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background-color: var(--light); transition: 0.3s;" onmouseover="this.style.backgroundColor='var(--primary)'" onmouseout="this.style.backgroundColor='var(--light)'">
+            <!-- Instagram SVG -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" style="color: var(--dark); display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background-color: var(--light); transition: 0.3s;" onmouseover="this.style.backgroundColor='var(--primary)'" onmouseout="this.style.backgroundColor='var(--light)'">
+            <!-- YouTube SVG -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+          </a>
+          <a href="#" style="color: var(--dark); display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background-color: var(--light); transition: 0.3s;" onmouseover="this.style.backgroundColor='var(--primary)'" onmouseout="this.style.backgroundColor='var(--light)'">
+            <!-- TikTok SVG (simplified) -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+          </a>
+        </div>
+        
+        <button class="btn btn-dark w-full" onclick="document.getElementById('bookingModal').style.display='flex'">Book Now</button>
+      </div>
+      
+      <div style="flex: 1; margin-top: 80px;">
+        <h3>About Me</h3>
+        <p id="bioText">I specialize in creating high-quality content that resonates with Sri Lankan audiences. Let's work together to bring your brand's vision to life!</p>
+        
+        <h3 class="mt-8">Audience Demographics</h3>
+        <div class="grid grid-cols-2 gap-4 mt-4">
+          <div class="card card-light">
+            <p style="margin: 0;">Primary Age Group</p>
+            <h2 id="ageDemographic">18 - 24</h2>
+          </div>
+          <div class="card card-light">
+            <p style="margin: 0;">Top Location</p>
+            <h2 id="locationDemographic">Colombo, LK</h2>
+          </div>
+        </div>
+
+        <h3 class="mt-8">Recent Posts & Portfolio</h3>
+        <div id="portfolioGrid" class="grid grid-cols-3 gap-4 mt-4">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background-color: var(--dark); color: var(--white); padding: 40px 0; margin-top: 60px;">
+    <div class="container flex justify-between items-center" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 30px; margin-bottom: 30px;">
+      <div>
+        <a href="index.html" style="display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 700; color: var(--white); text-decoration: none;">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 0L18.4239 11.5761L30 15L18.4239 18.4239L15 30L11.5761 18.4239L0 15L11.5761 11.5761L15 0Z" fill="var(--primary)"/>
+          </svg>
+          Creator Hub
+        </a>
+      </div>
+      <div style="display: flex; gap: 20px;">
+        <a href="#" style="color: var(--white); text-decoration: none; opacity: 0.8;">Privacy Policy</a>
+        <a href="#" style="color: var(--white); text-decoration: none; opacity: 0.8;">Terms of Service</a>
+      </div>
+    </div>
+    <div class="container flex justify-center items-center">
+      <p style="opacity: 0.6; font-size: 0.875rem; text-align: center;">&copy; 2026 Creator Hub Sri Lanka. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const name = urlParams.get('name') || "Hasini Beauty";
+      const role = urlParams.get('role') || "Beauty & Makeup";
+      const img = urlParams.get('img') || "images/creator_hasini.jpg";
+
+      document.getElementById('profileName').textContent = name;
+      document.title = name + " - Creator Hub";
+      document.getElementById('profileRole').textContent = role + " Creator from Sri Lanka";
+      
+      const pImage = document.getElementById('profileImage');
+      pImage.src = img;
+      pImage.alt = name;
+
+      // Make bio specific
+      document.getElementById('bioText').innerText = "I specialize in creating high-quality " + role.toLowerCase() + " content that resonates with Sri Lankan audiences. Let's work together to bring your brand's vision to life!";
+
+      // Convert name to an integer seed to make randomization consistent for the same creator
+      let seed = 0;
+      for (let i = 0; i < name.length; i++) seed += name.charCodeAt(i);
+
+      // Randomize demographics consistently
+      const ages = ["18 - 24", "25 - 34", "13 - 17", "18 - 34"];
+      const locations = ["Colombo, LK", "Kandy, LK", "Galle, LK", "Negombo, LK"];
+      
+      document.getElementById('ageDemographic').innerText = ages[seed % ages.length];
+      const selectedLocation = locations[seed % locations.length];
+      document.getElementById('locationDemographic').innerText = selectedLocation;
+      
+      document.getElementById('headerLocation').innerHTML = "&#128205; " + selectedLocation;
+      document.getElementById('headerEmail').innerHTML = "&#9993;&#65039; contact@" + name.replace(/\s+/g, '').toLowerCase() + ".lk";
+
+      // Apply portfolio images based on niche
+      const photoSets = {
+        "Beauty": ["1596462502278-27bfdc403348", "1512496015851-a1c8ddc1b3f9", "1599305090598-fe179d501227", "1571781526291-c477ebfd024b", "1616683693504-3ea7e9ad6fec", "1522337660859-02fbefca4702"],
+        "Travel": ["1501785888041-af3ef285b470", "1476514525535-07fb3b4ae5f1", "1530789253388-d4128f69b909", "1506012787146-f92b2d7d6d96", "1499856871958-5b9627545d1a", "1469854523086-cc02fe5d8800"],
+        "Gaming": ["1542751371-adc38448a05e", "1550745165-9bc0b252726f", "1612287232202-09f182c44342", "1511512578047-dfb367046420", "1552820728-8b83bb6b7738", "1524281858597-d8af75d713c2"],
+        "Food": ["1504670068431-0738a101b00e", "1499028203764-86fc0f624e70", "1540189549336-e6e99c3679fe", "1565299624946-b28f40a0ae38", "1567620905732-2e1ec85871af", "1484723091782-428b7cd563c6"],
+        "Tech": ["1498050108023-ce522ba5caec", "1518770660439-4636190af475", "1531297172869-4a5cb344d5ae", "1496181133206-80ce9b88a853", "1498050108023-ce522ba5caec", "1525547719571-a2d4ac8945e2"],
+        "Default": ["1481481313364-7389a42533ed", "1490901594944-77e8a9394fcc", "1475087114881-bc5a6f23e20e", "1484723091782-428b7cd563c6", "1499856871958-5b9627545d1a", "1469854523086-cc02fe5d8800"]
+      };
+
+      let selectedSet = photoSets["Default"];
+      for (let key in photoSets) {
+        if (role.includes(key)) {
+          selectedSet = photoSets[key];
+          break;
+        }
+      }
+
+      // Also set the cover image dynamically to match the niche
+      document.getElementById('coverImage').style.backgroundImage = "url('https://images.unsplash.com/photo-" + selectedSet[0] + "?w=1200&q=80')";
+
+      const grid = document.getElementById('portfolioGrid');
+      grid.innerHTML = '';
+      selectedSet.forEach(id => {
+        grid.innerHTML += "<div style=\"background-color: var(--light); border-radius: var(--radius); height: 200px; background-image: url('https://images.unsplash.com/photo-" + id + "?w=400&q=80'); background-size: cover; background-position: center;\"></div>";
+      });
+    });
+  </script>
+</body>
+</html>
+"@
+[System.IO.File]::WriteAllText("f:\Website\profile.html", $htmlContent, (New-Object System.Text.UTF8Encoding $false))
+Write-Output "Successfully rebuilt profile.html to be fully dynamic!"
